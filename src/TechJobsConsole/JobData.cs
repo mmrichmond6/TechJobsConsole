@@ -50,6 +50,8 @@ namespace TechJobsConsole
                 foreach (KeyValuePair<string, string> pair in row)
                     {
                         string aValue = row[pair.Key];
+                        aValue = aValue.ToLower();
+                        value = value.ToLower();
 
                         if (aValue.Contains(value))
                         {
@@ -70,6 +72,8 @@ namespace TechJobsConsole
             foreach (Dictionary<string, string> row in AllJobs)
             {
                 string aValue = row[column];
+                aValue = aValue.ToLower();
+                value = value.ToLower();
 
                 if (aValue.Contains(value))
                 {
