@@ -65,12 +65,32 @@ namespace TechJobsConsole
                     if (columnChoice.Equals("all"))
                     {
                         searchResults = JobData.FindByValue(columnChoice, searchTerm);
-                        PrintJobs(searchResults);
+                        List<Dictionary<string, string>> noDupSearchResults = new List<Dictionary<string, string>>();
+
+                        foreach (Dictionary<string, string> item in searchResults)
+                        {
+                            if (!noDupSearchResults.Contains(item))
+                            {
+                                noDupSearchResults.Add(item);
+                            }
+                        }
+
+                        PrintJobs(noDupSearchResults);
                     }
                     else
                     {
                         searchResults = JobData.FindByColumnAndValue(columnChoice, searchTerm);
-                        PrintJobs(searchResults);
+                        List<Dictionary<string, string>> noDupSearchResults = new List<Dictionary<string, string>>();
+
+                        foreach (Dictionary<string, string> item in searchResults)
+                        {
+                            if (!noDupSearchResults.Contains(item))
+                            {
+                                noDupSearchResults.Add(item);
+                            }
+                        }
+
+                        PrintJobs(noDupSearchResults);
                     }
                 }
             }
